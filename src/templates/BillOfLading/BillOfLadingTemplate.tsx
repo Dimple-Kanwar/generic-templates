@@ -16,18 +16,24 @@ const Section3 = (document: BillOfLading): JSX.Element => {
         </div>
         <div className="flex-grow border-black border">
           <div className="p-2 h-24">{smallText("Rule")}</div>
+          <div className="break-words">{document.rule || ""}</div>
         </div>
         <div className="flex-grow border-black border">
           <div className="p-2 h-24">{smallText("Unit")}</div>
+          <div className="break-words">{document.unit || ""}</div>
+
         </div>
         <div className="flex-grow border-black border">
           <div className="p-2 h-24">{smallText("Currency")}</div>
+          <div className="break-words">{document.currency || ""}</div>
         </div>
         <div className="w-1/5 border-black border">
           <div className="p-2 h-24">{smallText("Prepaid")}</div>
+          <div className="break-words">{document.prepaid || ""}</div>
         </div>
         <div className="w-1/5 border-black border">
           <div className="p-2 h-24">{smallText("Collect")}</div>
+          <div className="break-words">{document.collect || ""}</div>
         </div>
       </div>
 
@@ -45,6 +51,7 @@ const Section3 = (document: BillOfLading): JSX.Element => {
               </div>
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Place of Issue of B/L")}</div>
+                <div className="break-words">{document.placeOfDelivery || ""}</div>
               </div>
             </div>
 
@@ -57,15 +64,18 @@ const Section3 = (document: BillOfLading): JSX.Element => {
               </div>
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Date of Issue of B/L")}</div>
+                <div className="break-words">{document.dateOfIssue || ""}</div>
               </div>
             </div>
 
             <div className="flex flex-1">
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Declared Value (see clause 7.3)")}</div>
+                <div className="break-words">{document.declaredValue || ""}</div>
               </div>
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Shipped on Board Date (Local Time)")}</div>
+                <div className="break-words">{document.shippedOnBoardDate || ""}</div>
               </div>
             </div>
           </div>
@@ -73,9 +83,10 @@ const Section3 = (document: BillOfLading): JSX.Element => {
 
         <div className="w-1/2 border-black border">
           <div className="p-2">
-            {smallText(
+            {/* {smallText(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis id consectetur purus ut faucibus. Diam quam nulla porttitor massa. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Amet mauris commodo quis imperdiet massa tincidunt. Luctus accumsan tortor posuere ac ut. Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Eros donec ac odio tempor orci dapibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Velit aliquet sagittis id consectetur purus ut. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero. Odio ut sem nulla pharetra diam sit. Nunc sed augue lacus viverra vitae congue eu consequat ac. Eros in cursus turpis massa tincidunt dui ut ornare lectus."
-            )}
+            )} */}
+            {document.disclaimer}
             <div className="text-center mt-4 mb-16">
               <strong>{smallText(`Signed for the Carrier ${carrierName || ""}`)}</strong>
             </div>
@@ -224,6 +235,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
           <div className="p-2" style={{ fontSize: "0.8em" }}>
             Place of Receipt. Applicable only when document used as Multimodal Transport B/L (see clause 1)
           </div>
+          <div className="break-words">{document.placeOfReceipt || ""}</div>
         </div>
       </div>
 
@@ -245,6 +257,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             <div style={{ fontSize: "0.8em" }}>
               Place of Delivery. Applicable only when document used as Multimodal Transport B/L (see clause 1)
             </div>
+            <div className="break-words">{document.placeOfDelivery || ""}</div>
           </div>
         </div>
       </div>

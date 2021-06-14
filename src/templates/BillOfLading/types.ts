@@ -27,4 +27,20 @@ export interface BillOfLading extends Document {
       href: string;
     };
   };
+
+  //new ones
+  placeOfReceipt: string;
+  placeOfDelivery: string;
+  placeOfIssue: string;
+  dateOfIssue: string;
+  shippedOnBoardDate: string;
+  declaredValue: string;
+  disclaimer: string;
+  rule: string;
+  unit: string;
+  currency: string;
+  prepaid: string;
+  collect: string;
+  freightCharges: string;
+  exportReferences: string;
 }
