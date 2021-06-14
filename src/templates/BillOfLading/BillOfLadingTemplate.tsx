@@ -186,6 +186,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
           </div>
           <div className="p-2 border-black border-b-2">
             <div style={{ fontSize: "0.8em" }}>Export references</div>
+            <div className="break-words">{document.exportReferences || ""}</div>
           </div>
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>
