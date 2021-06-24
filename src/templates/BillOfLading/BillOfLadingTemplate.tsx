@@ -7,7 +7,7 @@ import { BillOfLading } from "./types";
 const smallText = (text: string): JSX.Element => <div style={{ fontSize: "0.8em" }}>{text}</div>;
 
 const Section3 = (document: BillOfLading): JSX.Element => {
-  const carrierName = document.carrierName;
+  const carrierName = document.data.data.CarrierName;
   return (
     <div className="border-black border">
       <div className="flex">
@@ -16,24 +16,23 @@ const Section3 = (document: BillOfLading): JSX.Element => {
         </div>
         <div className="flex-grow border-black border">
           <div className="p-2 h-24">{smallText("Rule")}</div>
-          <div className="break-words">{document.rule || ""}</div>
+          <div className="break-words">{document.data.data.Rule || ""}</div>
         </div>
         <div className="flex-grow border-black border">
           <div className="p-2 h-24">{smallText("Unit")}</div>
-          <div className="break-words">{document.unit || ""}</div>
-
+          <div className="break-words">{document.data.data.Unit || ""}</div>
         </div>
         <div className="flex-grow border-black border">
           <div className="p-2 h-24">{smallText("Currency")}</div>
-          <div className="break-words">{document.currency || ""}</div>
+          <div className="break-words">{document.data.data.Currency || ""}</div>
         </div>
         <div className="w-1/5 border-black border">
           <div className="p-2 h-24">{smallText("Prepaid")}</div>
-          <div className="break-words">{document.prepaid || ""}</div>
+          <div className="break-words">{document.data.data.PrepaidAmount || ""}</div>
         </div>
         <div className="w-1/5 border-black border">
           <div className="p-2 h-24">{smallText("Collect")}</div>
-          <div className="break-words">{document.collect || ""}</div>
+          <div className="break-words">{document.data.data.CollectAmount || ""}</div>
         </div>
       </div>
 
@@ -51,7 +50,7 @@ const Section3 = (document: BillOfLading): JSX.Element => {
               </div>
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Place of Issue of B/L")}</div>
-                <div className="break-words">{document.placeOfDelivery || ""}</div>
+                <div className="break-words">{document.data.data.PlaceOfDelivery || ""}</div>
               </div>
             </div>
 
@@ -64,18 +63,18 @@ const Section3 = (document: BillOfLading): JSX.Element => {
               </div>
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Date of Issue of B/L")}</div>
-                <div className="break-words">{document.dateOfIssue || ""}</div>
+                <div className="break-words">{document.data.data.DateOfIssue || ""}</div>
               </div>
             </div>
 
             <div className="flex flex-1">
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Declared Value (see clause 7.3)")}</div>
-                <div className="break-words">{document.declaredValue || ""}</div>
+                <div className="break-words">{document.data.data.DeclaredValue || ""}</div>
               </div>
               <div className="w-1/2 border-black border">
                 <div className="p-2">{smallText("Shipped on Board Date (Local Time)")}</div>
-                <div className="break-words">{document.shippedOnBoardDate || ""}</div>
+                <div className="break-words">{document.data.data.ShippedOnBoardDate || ""}</div>
               </div>
             </div>
           </div>
@@ -86,7 +85,7 @@ const Section3 = (document: BillOfLading): JSX.Element => {
             {/* {smallText(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis id consectetur purus ut faucibus. Diam quam nulla porttitor massa. Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Amet mauris commodo quis imperdiet massa tincidunt. Luctus accumsan tortor posuere ac ut. Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Eros donec ac odio tempor orci dapibus. Varius morbi enim nunc faucibus a pellentesque sit amet. Velit aliquet sagittis id consectetur purus ut. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero. Odio ut sem nulla pharetra diam sit. Nunc sed augue lacus viverra vitae congue eu consequat ac. Eros in cursus turpis massa tincidunt dui ut ornare lectus."
             )} */}
-            {document.disclaimer}
+            {document.data.data.Disclaimer}
             <div className="text-center mt-4 mb-16">
               <strong>{smallText(`Signed for the Carrier ${carrierName || ""}`)}</strong>
             </div>
@@ -102,20 +101,21 @@ const Section3 = (document: BillOfLading): JSX.Element => {
 };
 
 const Section2 = (document: BillOfLading): JSX.Element => {
-  const packages = document.packages || [];
-  const renderedKindOfPackage = packages.map((pkg, index) => <div key={index}>{pkg.description}</div>);
-  const renderedWeight = packages.map((pkg, index) => <div key={index}>{pkg.weight}</div>);
-  const renderedMeasurement = packages.map((pkg, index) => <div key={index}>{pkg.measurement}</div>);
-
+  // const packages = document.data.data.packages || [];
+  // const renderedKindOfPackage = packages.map((pkg, index) => <div key={index}>{pkg.description}</div>);
+  // const renderedWeight = packages.map((pkg, index) => <div key={index}>{pkg.weight}</div>);
+  // const renderedMeasurement = packages.map((pkg, index) => <div key={index}>{pkg.measurement}</div>);
   return (
     <div className="border-black border">
       <div className="flex">
         <div className="w-3/5 border-black border">
           <div className="p-2">
+            <div style={{ fontSize: "0.8em" }}>Total number of Packages: </div>
+            {document.data.data.TotalNumberOfPackages}
             <div style={{ fontSize: "0.8em" }}>
               Kind of Packages: Description of goods, Marks and Numbers: Container No./Serial No.
             </div>
-            {renderedKindOfPackage}
+            {document.data.data.DescriptionOfGoods}
             <div style={{ fontSize: "0.8em" }} className="mt-2">
               Above particulars as declared by Shipper, but without responsibility of our representation by Carrier (see
               clause 14)
@@ -125,13 +125,13 @@ const Section2 = (document: BillOfLading): JSX.Element => {
         <div className="w-1/5 border-black border">
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Weight</div>
-            {renderedWeight}
+            {document.data.data.PackageWeight}
           </div>
         </div>
         <div className="w-1/5 border-black border">
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Measurement</div>
-            {renderedMeasurement}
+            {document.data.data.PackageMeasurement}
           </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ const Section2 = (document: BillOfLading): JSX.Element => {
 };
 
 const Section1 = (document: BillOfLading): JSX.Element => {
-  const { shipper = {}, scac, blNumber, consignee = {}, notifyParty = {} } = document;
+  // const { shipper = {}, Scac, BLNumber, consignee = {}, notifyParty = {} } = document;
   return (
     <div className="border-black border">
       <div className="flex">
@@ -158,10 +158,10 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             </div>
             <div className="w-1/3 border-black border">
               <div className="p-2 border-black border-b-2">
-                SCAC <strong>{scac}</strong>
+                SCAC <strong>{document.data.data.Scac}</strong>
               </div>
               <div className="p-2">
-                B/L No <strong className="break-all">{blNumber}</strong>
+                B/L No <strong className="break-all">{document.data.data.BLNumber}</strong>
               </div>
             </div>
           </div>
@@ -173,20 +173,20 @@ const Section1 = (document: BillOfLading): JSX.Element => {
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Shipper</div>
             <div className="p-4">
-              <div>{shipper.name || ""}</div>
-              <div>{(shipper.address && shipper.address.street) || ""}</div>
-              <div>{(shipper.address && shipper.address.country) || ""}</div>
+              <div>{document.data.data.Shipper || ""}</div>
+              <div>{document.data.data.ShipperAddress || ""}</div>
+              {/* <div>{(document.data.data.ShipperAddress || ""}</div> */}
             </div>
           </div>
         </div>
         <div className="w-1/2 border-black border">
           <div className="p-2 border-black border-b-2">
             <div style={{ fontSize: "0.8em" }}>Booking No</div>
-            <div>{blNumber}</div>
+            <div>{document.data.data.BLNumber}</div>
           </div>
           <div className="p-2 border-black border-b-2">
             <div style={{ fontSize: "0.8em" }}>Export references</div>
-            <div className="break-words">{document.exportReferences || ""}</div>
+            <div className="break-words">{document.data.data.ExportReferenceNumber || ""}</div>
           </div>
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>
@@ -205,7 +205,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             </div>
             <div className="p-4">
               <div>TO THE ORDER OF</div>
-              <div>{consignee.name || ""}</div>
+              <div>{document.data.data.Consignee || ""}</div>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Notify Party (see clause 22)</div>
             <div className="p-4">
-              <div>{notifyParty.name || ""}</div>
+              <div>{document.data.data.NotifyParty || ""}</div>
             </div>
           </div>
         </div>
@@ -223,20 +223,20 @@ const Section1 = (document: BillOfLading): JSX.Element => {
         <div className="w-1/4 border-black border">
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Vessel (see clause 1 + 19)</div>
-            <div className="break-words">{document.vessel || ""}</div>
+            <div className="break-words">{document.data.data.Vessel || ""}</div>
           </div>
         </div>
         <div className="w-1/4 border-black border">
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Voyage No.</div>
-            <div className="break-all">{document.voyageNo || ""}</div>
+            <div className="break-all">{document.data.data.VoyageNumber || ""}</div>
           </div>
         </div>
         <div className="w-1/2 border-black border">
           <div className="p-2" style={{ fontSize: "0.8em" }}>
             Place of Receipt. Applicable only when document used as Multimodal Transport B/L (see clause 1)
           </div>
-          <div className="break-words">{document.placeOfReceipt || ""}</div>
+          <div className="break-words">{document.data.data.PlaceOfReceipt || ""}</div>
         </div>
       </div>
 
@@ -244,13 +244,13 @@ const Section1 = (document: BillOfLading): JSX.Element => {
         <div className="w-1/4 border-black border">
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Port of Loading</div>
-            <div className="break-words">{document.portOfLoading || ""}</div>
+            <div className="break-words">{document.data.data.PortOfLoading || ""}</div>
           </div>
         </div>
         <div className="w-1/4 border-black border">
           <div className="p-2">
             <div style={{ fontSize: "0.8em" }}>Port of Discharge</div>
-            <div className="break-words">{document.portOfDischarge || ""}</div>
+            <div className="break-words">{document.data.data.PortOfDischarge || ""}</div>
           </div>
         </div>
         <div className="w-1/2 border-black border">
@@ -258,7 +258,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             <div style={{ fontSize: "0.8em" }}>
               Place of Delivery. Applicable only when document used as Multimodal Transport B/L (see clause 1)
             </div>
-            <div className="break-words">{document.placeOfDelivery || ""}</div>
+            <div className="break-words">{document.data.data.PlaceOfDelivery || ""}</div>
           </div>
         </div>
       </div>
