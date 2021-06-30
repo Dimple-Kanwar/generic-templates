@@ -156,7 +156,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
           <div className="flex">
             <div className="w-2/3 border-black border">
               <div className="p-2">
-                <strong>BILL OF LADING FOR OCEAN TRANSPORT OR MULTIMODAL TRANSPORT</strong>
+                <strong>NON-NEGOTIABLE WAYBILL</strong>
               </div>
             </div>
             <div className="w-1/3 border-black border">
