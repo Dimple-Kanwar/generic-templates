@@ -12,7 +12,12 @@ const Section3 = (document: BillOfLading): JSX.Element => {
     <div className="border-black border">
       <div className="flex">
         <div className="w-1/4 border-black border">
-          <div className="p-2 h-24">{smallText("Freight & Charges")}</div>
+          <div className="p-2 h-24">{smallText("Freight & Charges Payable at")}</div>
+          <div className="break-words"> SINGAPORE</div>
+        </div>
+        <div className="flex-grow border-black border">
+          <div className="p-2 h-24">{smallText("Service Contract Number")}</div>
+          <div className="break-words">{document.data.ServiceContract || ""}</div>
         </div>
         <div className="flex-grow border-black border">
           <div className="p-2 h-24">{smallText("Rule")}</div>
@@ -161,7 +166,7 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             </div>
             <div className="w-1/3 border-black border">
               <div className="p-2 border-black border-b-2">
-                SCAC <strong>{document.data.Scac}</strong>
+                SCAC <strong>ONEY</strong>
               </div>
               <div className="p-2">
                 B/L No <strong className="break-all">{document.data.BLNumber}</strong>
