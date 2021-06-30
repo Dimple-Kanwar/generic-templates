@@ -89,9 +89,9 @@ const Section3 = (document: BillOfLading): JSX.Element => {
             <div className="text-center mt-4 mb-16">
               <strong>{smallText(`Signed for the Carrier ${carrierName || ""}`)}</strong>
             </div>
-            <div className="p-2 h-full flex justify-center items-center">
+            {/* <div className="p-2 h-full flex justify-center items-center">
               <img data-testid="logo" style={{ width: "150px" }} src="/static/images/john-dae-sign.png" />
-            </div>
+            </div> */}
             <hr />
             <div className="text-center mt-2">
               <strong>{smallText("As Agent(s) for the Carrier")}</strong>
