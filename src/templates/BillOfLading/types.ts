@@ -48,6 +48,7 @@ export interface BillOfLading extends Document {
     ServiceType?: string;
     ShipmentTerms?: string;
     MarksAndNumbers?: string;
+    Seals?: string;
     DescriptionOfGoods?: string;
     Commodity?: string;
     HsCode?: string;

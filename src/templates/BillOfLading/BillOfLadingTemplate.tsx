@@ -94,9 +94,9 @@ const Section3 = (document: BillOfLading): JSX.Element => {
             <div className="text-center mt-4 mb-16">
               <strong>{smallText(`Signed for the Carrier ${carrierName || ""}`)}</strong>
             </div>
-            {/* <div className="p-2 h-full flex justify-center items-center">
-              <img data-testid="logo" style={{ width: "150px" }} src="/static/images/john-dae-sign.png" />
-            </div> */}
+            <div className="p-2 h-full flex justify-center items-center">
+              <img data-testid="logo" style={{ width: "150px" }} src="/static/images/logo-trames.png" />
+            </div>
             <hr />
             <div className="text-center mt-2">
               <strong>{smallText("As Agent(s) for the Carrier")}</strong>
@@ -116,29 +116,51 @@ const Section2 = (document: BillOfLading): JSX.Element => {
   return (
     <div className="border-black border">
       <div className="flex">
-        <div className="w-3/5 border-black border">
+        <div className="w-2/6 border-black border">
           <div className="p-2">
-            <div style={{ fontSize: "0.8em" }}>Total number of Packages: </div>
+            <div style={{ fontSize: "0.8em", fontWeight: "bold" }}>Total number of Packages: </div>
             {document.data.TotalNumberOfPackages}
-            <div style={{ fontSize: "0.8em" }}>
-              Kind of Packages: Description of goods, Marks and Numbers: Container No./Serial No.
-            </div>
-            {document.data.DescriptionOfGoods}
+          </div>
+        </div>
+        <div className="w-2/6 border-black border">
+          <div className="p-2">
+            <div style={{ fontSize: "0.8em", fontWeight: "bold" }}>MARKS AND NOS CONTAINER </div>
+            {document.data.MarksAndNumbers?.split("\n").map(number => (
+              <div style={{ fontSize: "0.8em" }}>{number}</div>
+            ))}
             <div style={{ fontSize: "0.8em" }} className="mt-2">
               Above particulars as declared by Shipper, but without responsibility of our representation by Carrier (see
               clause 14)
             </div>
           </div>
         </div>
-        <div className="w-1/5 border-black border">
+        <div className="w-2/6 border-black border">
           <div className="p-2">
-            <div style={{ fontSize: "0.8em" }}>Weight</div>
-            {document.data.PackageWeight}
+            <div style={{ fontSize: "0.8em", fontWeight: "bold" }}>NOS OF SEAL </div>
+            {document.data.Seals?.split("\n").map(Seal => (
+              <div style={{ fontSize: "0.8em" }}>{Seal}</div>
+            ))}
           </div>
         </div>
-        <div className="w-1/5 border-black border">
+        <div className="w-2/6 border-black border">
           <div className="p-2">
-            <div style={{ fontSize: "0.8em" }}>Measurement</div>
+            <div style={{ fontSize: "0.8em", fontWeight: "bold" }}>Gross Weight Cargo</div>
+            <div style={{ fontSize: "0.8em" }}>{document.data.ContainerTareWeight}</div>
+            {document.data.CargoGrossWeight?.split("\n").map(weight => (
+              <div style={{ fontSize: "0.8em" }}>{weight}</div>
+            ))}
+          </div>
+        </div>
+        <div className="w-2/6 border-black border">
+          <div className="p-2">
+            <div style={{ fontSize: "0.8em", fontWeight: "bold" }}>Tare</div>
+            <div style={{ fontSize: "0.8em" }}>{document.data.ContainerTareWeight}</div>
+          </div>
+        </div>
+        <div className="w-2/6 border-black border">
+          <div className="p-2">
+            <div style={{ fontSize: "0.8em", fontWeight: "bold" }}>Measurement</div>
+            <div style={{ fontSize: "0.8em" }}>{document.data.Measurement}</div>
             {document.data.PackageMeasurement}
           </div>
         </div>
@@ -154,19 +176,19 @@ const Section1 = (document: BillOfLading): JSX.Element => {
       <div className="flex">
         <div className="w-1/2 border-black border">
           <div className="p-2 h-full flex justify-center items-center">
-            <img data-testid="logo" style={{ width: "150px" }} src="/static/images/one-logo.png" />
+            <img data-testid="logo" style={{ width: "150px" }} src="/static/images/anl-logo.png" />
           </div>
         </div>
         <div className="w-1/2">
           <div className="flex">
             <div className="w-2/3 border-black border">
               <div className="p-2">
-                <strong>NON-NEGOTIABLE WAYBILL</strong>
+                <strong>DRAFT BILL OF LADING</strong>
               </div>
             </div>
             <div className="w-1/3 border-black border">
               <div className="p-2 border-black border-b-2">
-                SCAC <strong>ONEY</strong>
+                SCAC <strong>ANNU</strong>
               </div>
               <div className="p-2">
                 B/L No <strong className="break-all">{document.data.BLNumber}</strong>
@@ -183,7 +205,10 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             <div className="p-4">
               <div>{document.data.Shipper || ""}</div>
               <div>{document.data.ShipperAddress || ""}</div>
-              {/* <div>{(document.data.ShipperAddress || ""}</div> */}
+              <div>{document.data.ShipperCountry || ""}</div>
+              <div>Phone {document.data.ShipperPhoneNumber || ""}</div>
+              <div>{document.data.ShipperEmail || ""}</div>
+              <div>{document.data.ShipperFax || ""}</div>
             </div>
           </div>
         </div>
@@ -214,6 +239,11 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             <div className="p-4">
               <div>TO THE ORDER OF</div>
               <div>{document.data.Consignee || ""}</div>
+              <div>{document.data.ConsigneeAddress || ""}</div>
+              <div>{document.data.ConsigneeCountry || ""}</div>
+              <div>{document.data.ConsigneePhoneNumber || ""}</div>
+              <div>{document.data.ConsigneeEmail || ""}</div>
+              <div>{document.data.ConsigneeFax || ""}</div>
             </div>
           </div>
         </div>
@@ -222,6 +252,11 @@ const Section1 = (document: BillOfLading): JSX.Element => {
             <div style={{ fontSize: "0.8em" }}>Notify Party (see clause 22)</div>
             <div className="p-4">
               <div>{document.data.NotifyParty || ""}</div>
+              <div>{document.data.NotifyPartyAddress || ""}</div>
+              <div>{document.data.NotifyPartyCountry || ""}</div>
+              <div>{document.data.NotifyPartyPhoneNumber || ""}</div>
+              <div>{document.data.NotifyPartyEmail || ""}</div>
+              <div>{document.data.NotifyPartyFax || ""}</div>
             </div>
           </div>
         </div>

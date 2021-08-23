@@ -1,45 +1,5 @@
 import { BillOfLading } from "./types";
 
-// export const BillOfLadingSample: BillOfLading = {
-// $template: {
-//   type: "EMBEDDED_RENDERER",
-//   name: "BILL_OF_LADING",
-//   url: "http://localhost:3000"
-// },
-// links: {
-//   self: {
-//     href:
-//       "https://action.openattestation.com/?q=%7B%22type%22:%22DOCUMENT%22,%22payload%22:%20%7B%22uri%22:%20%22https://api-ropsten.tradetrust.io/storage/33737b71-96f6-4019-b6c1-5fcea04fcc2a%22,%22key%22:%20%22edcbadf17301fe5dfe174496c7edf29e0702e2775ee919bbccb74d0dfd5a1b4b%22,%22permittedActions%22:%20%5B%22STORE%22%5D,%22redirect%22:%20%22https://dev.tradetrust.io%22%7D%7D"
-//   }
-// },
-//   Scac: "SGPU",
-//   BLNumber: "SGCNM21566325",
-//   packages: [
-//     {
-//       description: "description",
-//       weight: "10",
-//       measurement: "20"
-//     }
-//   ],
-//   shipper: {
-//     name: "Shipper Name",
-//     address: {
-//       street: "101 ORCHARD ROAD",
-//       country: "SINGAPORE"
-//     }
-//   },
-//   Vessel: "vessel",
-//   VoyageNumber: "voyageNo",
-//   consignee: {
-//     name: "Consignee name"
-//   },
-//   notifyParty: {
-//     name: "Notify Party Name"
-//   },
-//   PortOfDischarge: "Paris",
-//   PortOfLoading: "Singapore",
-//   CarrierName: "A.P. Moller"
-// };
 export const BillOfLadingSample: BillOfLading = {
   $template: {
     type: "EMBEDDED_RENDERER",
@@ -53,90 +13,93 @@ export const BillOfLadingSample: BillOfLading = {
     }
   },
   data: {
-    BLNumber: "ΟΝΕYS IΝA6 8 2",
-    CarrierName: "ONED\nOCEAN NETWORK EXPRESS",
+    BLNumber: "AEL1096195",
+    CarrierName: "ANL Singapore Pte Ltd",
     TransportDocumentIssuer: "",
-    Shipper: "SCHNEIDER ELECTRIC ASIA PTE LTD",
-    ShipperAddress: "46 PENJURU LANE #04 C&P HUB 3\nSINGAPORE 569059",
-    ShipperCountry: "REPUBLIC OF SINGAPORE",
-    ShipperPhoneNumber: "",
+    Shipper: "PLUM GROVE PTY LTD",
+    ShipperAddress: "OFFICE 24, MANNING BUILDINGS, 135 \n HIGH STREET MALL, FREMANTLE WA \n 6160",
+    ShipperCountry: "AUSTRALIA",
+    ShipperPhoneNumber: "0432693063",
     ShipperEmail: "",
     ShipperFax: "",
-    Consignee: "SCHNEIDER",
-    ConsigneeAddress: "3",
-    ConsigneeCountry: "",
+    Consignee: "PRIMA LIMITED",
+    ConsigneeAddress: "201 KEPPEL ROAD",
+    ConsigneeCountry: "SINGAPORE 099419",
     ConsigneePhoneNumber: "",
     ConsigneeEmail: "",
     ConsigneeFax: "",
     FreightPayer: "",
-    NotifyParty: "MAERSK LOGISTICS AND\nAFRICA ΡYT LTD.",
-    NotifyPartyAddress: "SOUTH\nTHE MARINE BUILDING 22 DOROTHY\nNYEMBE STREET 7001 DURBAN\nSOUTH",
-    NotifyPartyCountry: "",
+    NotifyParty: "PRIMA LIMITED",
+    NotifyPartyAddress: "201 KEPPEL ROAD",
+    NotifyPartyCountry: "SINGAPORE 099419",
     NotifyPartyPhoneNumber: "",
     NotifyPartyEmail: "",
     NotifyPartyFax: "",
     AlsoNotify: "",
     ShipperForwardingAgent: "",
-    ConsigneeForwardingAgent: "",
-    PlaceOfReceipt: "SINGAPORE",
-    PortOfLoading: "CollectAmount",
-    PortOfDischarge: "DURBAN",
-    PlaceOfDelivery: "REPUBLIC",
+    ConsigneeForwardingAgent: "CMA CGM & ANL SINGAPORE PTE LTD",
+    PlaceOfReceipt: "",
+    PortOfLoading: "SYDNEY AUSTRALIA",
+    PortOfDischarge: "SINGAPORE",
+    PlaceOfDelivery: "",
     OnwardInlandRouting: "",
     ServiceType: "",
-    ShipmentTerms: "PREPAID",
-    Vessel: "COSCO WELLINGTON",
-    VoyageNumber: "071W",
-    MarksAndNumbers: "NIL MARKS",
-    DescriptionOfGoods: "ELECTRICAL",
+    ShipmentTerms: "",
+    Vessel: "PHOEBE",
+    VoyageNumber: "126N",
+    MarksAndNumbers:
+      "CMAU0615381\nCMAU0978197\nCMAU3089980\nCMAU3247534\nFCIU5671697\nFCIU6341236\nGLDU9774776\nMAGU2418442\nTCLU3951697",
+    Seals:
+      "SEAL H315171\nSEAL H315178\nSEAL H315173\nSEAL H315172\nSEAL H315199\nSEAL H315193\nSEAL H315148\nSEAL H315174",
+    DescriptionOfGoods: "1 PACKAGE(S)",
     Commodity: "",
-    HsCode: "854390",
-    CargoGrossWeight: "9620.000KGS",
+    HsCode: "",
+    CargoGrossWeight:
+      "24580.000\n24500.000\n24500.000\n24540.000\n24580.000\n24590.000\n24610.000\n24500.000\n24580.000",
     VerifiedGrossMass: "",
-    TotalContainerWeight: "",
-    Measurement: "48.148CBM",
-    FreightPayableAt: "SINGAPORE",
-    PlaceOfIssue: "SINGAPORE",
-    DateOfIssue: "27 OCT 2020",
-    NumberOfOriginalBL: "",
+    TotalContainerWeight: "490950.000 KGS",
+    Measurement: "CBM",
+    FreightPayableAt: "MELBOURNE",
+    PlaceOfIssue: "MELBOURNE",
+    DateOfIssue: "02 AUG 2021",
+    NumberOfOriginalBL: "THREE (3)",
     NumberOfBLCopies: "",
-    CarrierBookingNumber: "SINA68239300",
-    ContainerNumber: "TCNU3943030",
-    ContainerSizeType: "FCL / FCL",
+    CarrierBookingNumber: "",
+    ContainerNumber: "CMAU0",
+    ContainerSizeType: "20ST",
     ShipperLEI: "",
     ConsigneeLEI: "",
     NotifyPartyLEI: "",
-    SealNumber: "/ SGAC72288",
+    SealNumber: "H315171",
     SealSource: "",
     Address: "",
     PhoneNumber: "",
     Email: "",
     Fax: "",
-    ContainerTareWeight: "",
+    ContainerTareWeight: "KGS",
     TransportDocumentNumber: "",
-    ExportReferenceNumber: "1097131",
+    ExportReferenceNumber: "C0087913-02",
     CountryOfOrigin: "",
     PreCarriedBy: "",
-    OnBoardDate: "27 OCT 2020",
+    OnBoardDate: "",
     ReceivedForShipmentDate: "",
-    SignedBy: "",
-    Scac: "12345",
+    SignedBy: "CMA-CGM GROUP AGENCIES (AU) PTY LTD",
+    Scac: "",
     FreightAndCharges: "",
-    PrepaidOrCollect: "",
+    PrepaidOrCollect: "PREPAID",
     TermsAndConditions: "",
-    TotalNumberOfContainers: "",
-    TotalNumberOfPackages: "2",
-    CarrierClauses:
-      "OCEAN FREIGHT PREPAID\nDESTINATION CHARGES COLLECT PER LINE TARIFF AND OTHER CHARGES TO BE COLLECTED FROM\nTHE PARTY WHO LAWFULLY DEMANDS DELIVERY OF THE CARGO WITHOUT PREJUDICE TO THE\nCARRIER'S RIGHTS AGAINST THE MERCHANT (SEE BACK CLAUSE 1) AS SET OUT AT BACK\nCLAUSE 13 (1)\nSHIPPER'S LOAD AND",
-    Unit: "Kg",
-    Currency: "USD",
+    TotalNumberOfContainers: "20 CONTAINER(S)",
+    TotalNumberOfPackages: "PACKAGE(S)",
+    CarrierClauses: "discharged",
+    Unit: "",
+    Currency: "",
     PrepaidAmount: "",
     CollectAmount: "",
-    ServiceContract: "LEHB01027A",
-    DeclaredValue: "123",
+    ServiceContract: "",
+    DeclaredValue: "",
     Disclaimer:
-      "RECEIVED by the Carier in apparent good order and condition (unless otherwise stated herein) the total\nnumber or quantity of Containers or other packages or units indicated in the box entitled \"Carrier's Receipt\",\nto be carried subject to all the terms and conditions hereof from the Place of Receipt or Port of Loading to the\nPort of Discharge or Place of Delivery, as applicable. Delivery of the Goods to the Carrier for Carriage\nhereunder constitutes acceptance by the Merchant (as defined hereinafter) (i) of all the terms and conditions,\nwhether printed, stamped or otherwise incorporated on this side and on the reverse side of this Bill of lading\nand the terms and conditions of the Carrier's applicable tariff(s) as if they were all signed by the Merchant,\nand (i) that any prior representations and/or agreements for or in connection with Carriage of the Goods are\nsuperseded by this Bill of Lading. If this is a negotiable (To Order/of) Bill of Lading, one original Bill of Lading,\nduly endorsed must be surrendered by the Merchant to the Carrier (together with any outstanding Freight) in\nexchange for the Goods or a Delivery Order or the pin codes for any applicable Electronic Release System.\nIf this is a non-negotiable (straighf) Bill of Lading, or where issued as a Sea Waybill, the Carrier shall deliver\nthe Goods or issue a Delivery Order or the pin codes for any applicable Electronic Release System (after\npayment of outstanding Freight) to the named consignee against the surrender of one original Bill of Lading,\nor in the case of a Sea Waybill, on production of such reasonable proof of identify as may be required by the\nCarrier, or in accordance with the national law at the Port of Discharge or Place of Delivery as applicable. IN\nWITNESS WHEREOF the Carrier or their Agent has signed the number of Bills of Lading stated at the top,\nall of this tenor and date, and whenever one original Bill of Lading has been surrendered all other Bills of\nLading shall be void.",
-    TransportDocumentType: "SEA WAYBILL",
+      "in an altemative port withoutnoriginal intended port of destination.nin any alternative port. All additionalnplugging, monitoring at the altemative discharge portnMerchant's account and payable before deliverynliability whatsoever for any loss or damage resulting thereof.nosts,nGoods have been checked andnfailure the Merchant to complynthe Merchant an",
+    TransportDocumentType: "BILL OF LADING",
     ReeferTemperatureSetting: "",
     ReeferHumidity: "",
     ReeferVentilation: "",
@@ -144,6 +107,6 @@ export const BillOfLadingSample: BillOfLading = {
     ForwardingAgentReferenceNumber: "",
     ConsigneeReferenceNumber: "",
     PackageMeasurement: "",
-    PackageWeight: ""
+    PackageWeight: "24580.000"
   }
 };
