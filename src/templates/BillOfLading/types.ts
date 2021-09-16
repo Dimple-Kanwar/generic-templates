@@ -22,6 +22,7 @@ export interface BillOfLading extends Document {
       weight: string;
       measurement: string;
     }[];
+    LadenOnBoard?: string;
     Shipper?: string;
     ShipperAddress?: string;
     ShipperCountry?: string;
@@ -86,6 +87,7 @@ export interface BillOfLading extends Document {
     // Scac?: string;
     // FreightAndCharges: "cff42149-a5a4-467f-886b-b1603bb03cf4:string:",
     PrepaidOrCollect?: string;
+    PrepaidAt?: string;
     TermsAndConditions?: string;
     TotalNumberOfContainers?: string;
     TotalNumberOfPackages?: string;
@@ -103,6 +105,7 @@ export interface BillOfLading extends Document {
     ReeferVentilation?: string;
     PartLoadIndicator?: string;
     ForwardingAgentReferenceNumber?: string;
+    ForwardingAgentReferences?: string;
     ConsigneeReferenceNumber?: string;
     PlaceOfReceipt?: string;
     PlaceOfDelivery?: string;
